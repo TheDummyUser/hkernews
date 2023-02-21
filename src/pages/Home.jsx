@@ -35,7 +35,7 @@ const Home = () => {
       <div>
         {data.map(story => (
           <div className='m-5 p-5 bg-slate-200 rounded-lg shadow-md ' key={story.id}>
-            <p href={story.url} className=" text-sm mb-2 md:text-base">{story.title} | click here to view more.</p>
+            <a href={story.url} className=" text-sm mb-2 md:text-base">{story.title} | click here to view more.</a>
             <div className='flex space-x-2 text-xs md:text-base'>
               <p>uploaded by: {story.by}</p>
               <p>uploaded: {story.timeString}</p>
