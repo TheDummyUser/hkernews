@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div className='font-mono'>
       <div className='m-10 text-4xl'>about:</div>
-      <div className='items-center p-20 pt-4 pl-28 pb-3 justify-around'>
+      <div className='items-center p-10 pt-4 pb-3 justify-between'>
            Hacker News is a social news website focused on technology and entrepreneurship. 
              It was created by the startup accelerator Y Combinator and is run by a small team of moderators. 
           Users can submit links to articles, blog posts, or other online content related to technology, startups, programming, 

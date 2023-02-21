@@ -34,9 +34,9 @@ const Home = () => {
       <h1 className='m-10 font-mono text-xl'>Top Stories</h1>
       <div>
         {data.map(story => (
-          <div className='m-5 p-5 bg-slate-200' key={story.id}>
-            <p href={story.url}>{story.title}</p>
-            <div className='flex'>
+          <div className='m-5 p-5 bg-slate-200 rounded-lg shadow-md ' key={story.id}>
+            <p href={story.url} className=" text-sm mb-2 md:text-base">{story.title}</p>
+            <div className='flex space-x-2 text-xs md:text-base'>
               <p>uploaded by: {story.by}</p>
               <p>uploaded: {story.timeString}</p>
             </div> 
