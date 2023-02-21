@@ -1,4 +1,4 @@
-This is a React functional component that utilizes the useState and useEffect hooks to fetch the top 10 stories from the Hacker News API and display them on the web page. Here's a breakdown of what the code does:
+This is a React functional component that utilizes the useState and useEffect hooks to fetch the top 40 stories from the Hacker News API and display them on the web page. Here's a breakdown of what the code does:
 
     const [data, setData] = useState([]);: This initializes a state variable data to an empty array using the useState hook. setData is a function that can be used to update the value of data.
 
