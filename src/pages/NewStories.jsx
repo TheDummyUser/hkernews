@@ -36,7 +36,7 @@ const NewStories = () => {
 
   return (
     <div className='font-mono'>
-    <h1 className='m-10 font-mono text-xl'>Top Stories</h1>
+    <h1 className='m-10 font-mono text-xl'>New Stories</h1>
     {isLoading ? (
       <div className="flex justify-center items-center h-screen">
       <img 
