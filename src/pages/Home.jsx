@@ -46,7 +46,7 @@ const Home = () => {
               <a href={story.url} className=" text-sm mb-2 md:text-base">{story.title}, Read more.</a>
               <div className='flex space-x-2 text-xs md:text-base'>
                 <p>uploaded by: {story.by}</p>
-                <p>uploaded: {story.timeString}</p>
+                <p>uploaded:  {story.timeString}</p>
               </div> 
             </div>
           ))}
