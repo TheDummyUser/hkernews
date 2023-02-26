@@ -1,8 +1,10 @@
 import React,{useState, useEffect} from 'react';
 import axios from "axios";
 import moment from 'moment/moment';
+
 const Home = () => {
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios.get('https://hacker-news.firebaseio.com/v0/topstories.json')
@@ -19,31 +21,39 @@ const Home = () => {
               return { id, title, url, timeString, by };
             });
             setData(stories);
+            setIsLoading(false);
           })
           .catch(error => {
             console.log(error);
+            setIsLoading(false);
           });
       })
       .catch(error => {
         console.log(error);
+        setIsLoading(false);
       });
   }, []);
 
   return (
     <div className='font-mono'>
       <h1 className='m-10 font-mono text-xl'>Top Stories</h1>
-      <div>
-        {data.map(story => (
-          <div className='m-5 p-5 bg-slate-200 rounded-lg shadow-md ' key={story.id}>
-            <a href={story.url} className=" text-sm mb-2 md:text-base">{story.title} Read more.</a>
-            <div className='flex space-x-2 text-xs md:text-base'>
-              <p>uploaded by: {story.by}</p>
-              <p>uploaded: {story.timeString}</p>
-            </div> 
-          </div>
-        ))}
-      </div>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <div>
+          {data.map(story => (
+            <div className='m-5 p-5 bg-slate-200 rounded-lg shadow-md ' key={story.id}>
+              <a href={story.url} className=" text-sm mb-2 md:text-base">{story.title}, Read more.</a>
+              <div className='flex space-x-2 text-xs md:text-base'>
+                <p>uploaded by: {story.by}</p>
+                <p>uploaded: {story.timeString}</p>
+              </div> 
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
+
 export default Home
