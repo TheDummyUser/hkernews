@@ -11,7 +11,7 @@ axios.get`('https://hacker-news.firebaseio.com/v0/topstories.json')`: This makes
     
 > response.data.slice(0, 40);: This extracts the top 10 story IDs from the response.
     
-> const storyPromises = topStories.map(storyId => axios.get`(https://hacker-news.firebaseio.com/v0/item/${storyId}.json`));` `: This creates an array of Promise objects, where each Promise is the result of calling axios.get with a URL that fetches a specific story by ID.
+> const storyPromises = topStories.map(storyId => axios.get`(https://hacker-news.firebaseio.com/v0/item/${storyId}.json`));`: This creates an array of Promise objects, where each Promise is the result of calling axios.get with a URL that fetches a specific story by ID.
     
 > Promise.all(storyPromises).then(responses => {...}): This waits for all the Promises in storyPromises to resolve (i.e., for all the story data to be fetched), and then executes the code block inside the .then function.
     
