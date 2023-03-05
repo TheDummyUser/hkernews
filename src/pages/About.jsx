@@ -12,7 +12,7 @@ const About = () => {
       <p className='grid place-items-center p-5'><a href="http://news.ycombinator.com">vist the official site.</a></p>
     </div>
   </div>
-  <footer className='fixed bottom-0 w-full grid place-items-center py-2'>
+  <footer className='fixed bottom-0 w-full grid place-items-center py-2 bg-yellow-200'>
     <p className='text-center flex items-center'>made with <FiHeart className='text-red-500 mx-1'/> by abhiram</p>
   </footer>
 </div>
