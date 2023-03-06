@@ -46,11 +46,11 @@ const Home = () => {
         />
       </div>
       ) : (
-        <div>
+        <div className='grid place-items-center'>
           {data.map(story => (
             <div className='m-5 p-5 bg-slate-200 rounded-lg shadow-md ' key={story.id}>
               <a href={story.url} className=" text-sm mb-2 md:text-base">{story.title}, Read more.</a>
-              <div className='flex space-x-2 text-xs md:text-base'>
+              <div className='flex space-x-2 text-xs md:text-base content-center'>
                 <p>uploaded by: {story.by}</p>
                 <p>uploaded:  {story.timeString}</p>
               </div> 
