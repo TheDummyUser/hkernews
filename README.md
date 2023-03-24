@@ -1,22 +1,43 @@
-This is a React functional component that utilizes the useState and useEffect hooks to fetch the top 40 stories from the Hacker News API and display them on the web page. Here's a breakdown of what the code does:
+This is a front-end application that displays top stories from the Hacker News website in a clean and user-friendly format. The application uses React, React Router, and Axios to retrieve and display data from the Hacker News API.
 
-> const [data, setData] = useState([]);: This initializes a state variable data to an empty array using the useState hook. setData is a function that can be used to update the value of data.
+File Structure:
+The application consists of four components, which are:
 
-> useEffect(() => {...}, []);: This sets up a side effect that will execute when the component mounts (i.e., when the component is first rendered). The [] as the second argument to useEffect indicates that the effect should only be run once (when the component mounts), and not on subsequent re-renders.
+    App.jsx: This is the root component of the application. It defines the routes for the different pages and contains the navigation bar that allows the user to switch between the pages.
 
-    
-axios.get`('https://hacker-news.firebaseio.com/v0/topstories.json')`: This makes an HTTP GET request using the Axios library to the Hacker News API to fetch the top story IDs.
-    
-> .then(response => {...}): If the HTTP request is successful, this code block executes.
-    
-> response.data.slice(0, 40);: This extracts the top 10 story IDs from the response.
-    
-> const storyPromises = topStories.map(storyId => axios.get`(https://hacker-news.firebaseio.com/v0/item/${storyId}.json`));`: This creates an array of Promise objects, where each Promise is the result of calling axios.get with a URL that fetches a specific story by ID.
-    
-> Promise.all(storyPromises).then(responses => {...}): This waits for all the Promises in storyPromises to resolve (i.e., for all the story data to be fetched), and then executes the code block inside the .then function.
-    
-> const stories = responses.map(response => {...}): This extracts the relevant fields from each story response (i.e., id, title, url, and time), formats the time field using the moment library, and returns an array of story objects.
-    
-> setData(stories);: This updates the data state variable with the array of story objects, which will trigger a re-render of the component.
+    Home.jsx: This component is responsible for displaying the top stories on the homepage. It uses the Axios library to fetch data from the Hacker News API and displays the stories in a grid format.
 
-> .catch(error => {...}): If any of the HTTP requests fail, this code block executes and logs the error to the console.
+    NewStories.jsx: This component displays the latest stories that have been added to the Hacker News website. It also uses the Axios library to fetch data from the API.
+
+    About.jsx: This component provides information about the Hacker News website and its purpose. It also contains a link to the official website.
+
+Dependencies:
+The application requires the following dependencies to run:
+
+    React: A JavaScript library for building user interfaces.
+
+    React Router: A library that allows for declarative routing in React applications.
+
+    Axios: A promise-based library for making HTTP requests.
+
+    Moment: A JavaScript library for manipulating dates and times.
+
+    TailwindCSS: A utility-first CSS framework for building responsive and scalable user interfaces.
+
+How to Run the Application:
+To run the application, follow the steps below:
+
+    Clone the repository onto your local machine.
+
+    Navigate to the project directory and run the following command to install the dependencies:
+
+    npm install
+
+    Run the following command to start the application:
+
+    npm start
+
+    Open your web browser and navigate to http://localhost:3000 to view the application.
+
+Conclusion:
+This application provides a clean and user-friendly interface for browsing top stories and the latest news on the Hacker News website. The use of React, React Router, and Axios make the application efficient and easy to use, while the integration of Moment and TailwindCSS help to enhance the user experience.
