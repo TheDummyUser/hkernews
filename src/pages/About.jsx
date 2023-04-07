@@ -4,7 +4,7 @@ import { FiHeart } from 'react-icons/fi';
 const About = () => {
   return (
     <div className='font-mono grid m-0 p-0' style={{ marginBottom: '60px' }}>
-      <p className='text-3xl mt-10'>about:</p>
+      <p className='text-3xl mt-10 ml-5'>about:</p>
       <div className=''>
         <div className='mt-10 ml-5'>
           <p>

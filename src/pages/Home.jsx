@@ -3,10 +3,17 @@ import axios from 'axios';
 import moment from 'moment/moment';
 
 import kakaotalkEmoticon from '../assets/kakaotalk-emoticon.gif';
-import data from '../assets/hn.json';
 
 const Home = () => {
-  const [selectedOption, setSelectedOption] = useState('topstories');
+  const options = {
+    "Top stories": "topstories",
+    "New stories": "newstories",
+    "Ask Stories": "askstories",
+    "Show Stories": "showstories",
+    "Jobs": "jobstories",
+  };
+
+  const [selectedOption, setSelectedOption] = useState(options['Top stories']);
   const [stories, setStories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -47,12 +54,11 @@ const Home = () => {
 
   return (
     <div className='font-mono'>
-      <h1 className='m-10 font-mono text-xl'>{selectedOption}</h1>
-      <div className='flex justify-center items-center'>
-        <select className='p-2 rounded-lg' value={selectedOption} onChange={handleChange}>
-          {Object.keys(data).map((key) => (
-            <option value={key} key={key}>
-              {data[key]}
+      <div className='m-5 font-mono text-xl'>
+        <select className=' rounded-md bg-white p-2 m-5 font-mono text-xl' value={selectedOption} onChange={handleChange}>
+          {Object.keys(options).map((key) => (
+            <option value={options[key]} key={key}>
+              {key}
             </option>
           ))}
         </select>
@@ -66,19 +72,18 @@ const Home = () => {
           />
         </div>
       ) : (
-        <div className='grid place-items-center'>
-          {stories.map((story) => (
-            <div className='m-5 p-5 bg-slate-200 rounded-lg shadow-md ' key={story.id}>
-              <a href={story.url} className='text-sm mb-2 md:text-base'>
-                {story.title}, Read more.
-              </a>
-              <div className='flex space-x-2 text-xs md:text-base content-center'>
-                <p>uploaded by: {story.by}</p>
-                <p>uploaded: {story.timeString}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <div className=''>
+  {stories.map((story) => (
+    <div className="m-5" key={story.id}>
+      <a href={story.url} className="mb-2 block">{story.title}</a>
+      <div className="flex justify-between items-center text-sm text-gray-500">
+        <p>{story.timeString}</p>
+        <a href={`https://news.ycombinator.com/user?id=${story.by}`} className="hover:text-blue-500">@{story.by}</a>
+      </div>
+    </div>
+  ))}
+</div>
+
       )}
     </div>
   );
