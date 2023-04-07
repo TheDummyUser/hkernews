@@ -80,10 +80,10 @@ const Home = () => {
         <p>{story.timeString}</p>
         <a href={`https://news.ycombinator.com/user?id=${story.by}`} className="hover:text-blue-500">@{story.by}</a>
       </div>
+      <hr className='m-0 p-0 border w-full border-black' />
     </div>
   ))}
 </div>
-
       )}
     </div>
   );
