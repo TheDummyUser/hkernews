@@ -11,7 +11,7 @@ const App = () => {
       <Router>
         <nav>
           <div className="p-5 flex items-center font-mono justify-between">
-            <div className='flex text-lg underline font-mono'>HACKERNEWS</div>
+            <div className='flex text-lg underline font-mono'><Link to={`/`}>HACKERNEWS</Link></div>
             <div className='flex space-x-6'>
             <div><Link to="/about"><FiInfo size={19} /></Link></div>
             </div>
