@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import moment from 'moment/moment';
-
+import Comments from '../components/comments'
 import kakaotalkEmoticon from '../assets/kakaotalk-emoticon.gif';
 
 const Home = () => {
@@ -16,6 +16,7 @@ const Home = () => {
   const [selectedOption, setSelectedOption] = useState(options['Top stories']);
   const [stories, setStories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const url = `https://hacker-news.firebaseio.com/v0/${selectedOption}.json?print=pretty`;
@@ -76,9 +77,10 @@ const Home = () => {
   {stories.map((story) => (
     <div className="m-5 md:place-content-center md:text-start" key={story.id}>
       <a href={story.url} className="mb-2 block">{story.title}</a>
-      <div className="flex justify-between md:space-x-5 md:justify-start items-center text-sm text-gray-500">
+      <div className="flex space-x-5 md:space-x-5 md:justify-start items-center text-sm text-gray-500">
         <p>{story.timeString}</p>
         <a href={`https://news.ycombinator.com/user?id=${story.by}`} className="hover:text-blue-500">@{story.by}</a>
+        <Comments storyId={story.id} />
       </div>
       <hr className='m-0 p-0 border content-center w-full border-black' />
     </div>
