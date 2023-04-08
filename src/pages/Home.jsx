@@ -23,7 +23,7 @@ const Home = () => {
     axios
       .get(url)
       .then((response) => {
-        const storyIds = response.data.slice(0, 40);
+        const storyIds = response.data.slice(0, 80);
         const storyPromises = storyIds.map((storyId) =>
           axios.get(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json`)
         );
@@ -74,13 +74,13 @@ const Home = () => {
       ) : (
         <div className=''>
   {stories.map((story) => (
-    <div className="m-5" key={story.id}>
+    <div className="m-5 md:place-content-center md:text-start" key={story.id}>
       <a href={story.url} className="mb-2 block">{story.title}</a>
-      <div className="flex justify-between items-center text-sm text-gray-500">
+      <div className="flex justify-between md:space-x-5 md:justify-start items-center text-sm text-gray-500">
         <p>{story.timeString}</p>
         <a href={`https://news.ycombinator.com/user?id=${story.by}`} className="hover:text-blue-500">@{story.by}</a>
       </div>
-      <hr className='m-0 p-0 border w-full border-black' />
+      <hr className='m-0 p-0 border content-center w-full border-black' />
     </div>
   ))}
 </div>
