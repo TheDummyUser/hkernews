@@ -3,28 +3,30 @@ This is a front-end application that displays top stories from the Hacker News w
 File Structure:
 The application consists of four components, which are:
 
-    App.jsx: This is the root component of the application. It defines the routes for the different pages and contains the navigation bar that allows the user to switch between the pages.
+`App.jsx: This is the root component of the application. It defines the routes for the different pages and contains the navigation bar that allows the user to switch between the pages.`
 
-    Home.jsx: This component is responsible for displaying the top stories on the homepage. It uses the Axios library to fetch data from the Hacker News API and displays the stories in a grid format.
+> Home.jsx: This component is responsible for displaying the stories on the homepage. It uses the Axios library to fetch data from the Hacker News API and displays the stories in a grid format.
+>>Home.jxs consits of multiple options, top stories, new stories, best stories,
+>>ask stories, show stories and so on...
 
-    NewStories.jsx: This component displays the latest stories that have been added to the Hacker News website. It also uses the Axios library to fetch data from the API.
 
-    About.jsx: This component provides information about the Hacker News website and its purpose. It also contains a link to the official website.
+> About.jsx: This component provides information about the Hacker News website and its purpose. It also contains a link to the official website.
 
 Dependencies:
 The application requires the following dependencies to run:
 
-    React: A JavaScript library for building user interfaces.
+``` React: A JavaScript library for building user interfaces.
 
-    React Router: A library that allows for declarative routing in React applications.
+React Router: A library that allows for declarative routing in React applications.
 
-    Axios: A promise-based library for making HTTP requests.
+Axios: A promise-based library for making HTTP requests.
 
-    Moment: A JavaScript library for manipulating dates and times.
+Moment: A JavaScript library for manipulating dates and times.
 
-    TailwindCSS: A utility-first CSS framework for building responsive and scalable user interfaces.
+TailwindCSS: A utility-first CSS framework for building responsive and scalable user interfaces. 
+```
+`How to Run the Application:`
 
-How to Run the Application:
 To run the application, follow the steps below:
 
     Clone the repository onto your local machine.
